@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>blog</title>
+        
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                blog
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../index.html">首页</a></li><li class="active"><a href="../html/react.html">react</a></li></ul>
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t01. 什么是react">1. 什么是react</a></li><li><a href="#t12. 安装react">2. 安装react</a></li><li><a href="#t23. 直接在浏览器中使用React">3. 直接在浏览器中使用React</a></li><li><a href="#t34. ReactDOM.render">4. ReactDOM.render</a></li><li><a href="#t45. JSX 语法">5. JSX 语法</a><ul><li><a href="#t5是一种JS和HTML混合的语法,将组件的结构、数据甚至样式都聚合在一起定义组件,会编译成普通的Javascript。">是一种JS和HTML混合的语法,将组件的结构、数据甚至样式都聚合在一起定义组件,会编译成普通的Javascript。</a></li></ul></li><li><a href="#t66. 定义组件">6. 定义组件</a><ul><li><a href="#t76.1 定义组件">6.1 定义组件</a></li><li><a href="#t86.2 组件的属性">6.2 组件的属性</a></li><li><a href="#t96.3 state状态">6.3 state状态</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t01. &#x4EC0;&#x4E48;&#x662F;react">1. &#x4EC0;&#x4E48;&#x662F;react <a href="#t01. &#x4EC0;&#x4E48;&#x662F;react"> # </a></h2>
+<blockquote>
+<p>React &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;JavaScript&#x5E93;</p>
+<h2 id="t12. &#x5B89;&#x88C5;react">2. &#x5B89;&#x88C5;react <a href="#t12. &#x5B89;&#x88C5;react"> # </a></h2>
+<p>$ bower install react babel --save</p>
+<h2 id="t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React">3. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React <a href="#t23. &#x76F4;&#x63A5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F7F;&#x7528;React"> # </a></h2>
+<p>react.js &#x662F; React &#x7684;&#x6838;&#x5FC3;&#x5E93;
+react-dom.js &#x662F;&#x63D0;&#x4F9B;&#x4E0E;DOM&#x76F8;&#x5173;&#x7684;&#x529F;&#x80FD;,&#x4F1A;&#x5728;window&#x4E0B;&#x589E;&#x52A0;ReactDOM&#x5C5E;&#x6027;
+browser.js &#x7684;&#x4F5C;&#x7528;&#x662F;&#x5C06;JSX&#x8BED;&#x6CD5;&#x8F6C;&#x4E3A;JavaScript&#x8BED;&#x6CD5;
+script&#x4E2D;&#x7684;type&#x5C5E;&#x6027;&#x4E3A;text/babel,&#x56E0;&#x4E3A;React&#x72EC;&#x6709;&#x7684;JSX&#x8BED;&#x6CD5;,&#x8DDF;JavaScript&#x4E0D;&#x517C;&#x5BB9;</p>
+<h2 id="t34. ReactDOM.render">4. ReactDOM.render <a href="#t34. ReactDOM.render"> # </a></h2>
+<h2 id="t45. JSX &#x8BED;&#x6CD5;">5. JSX &#x8BED;&#x6CD5; <a href="#t45. JSX &#x8BED;&#x6CD5;"> # </a></h2>
+<h4 id="t5&#x662F;&#x4E00;&#x79CD;JS&#x548C;HTML&#x6DF7;&#x5408;&#x7684;&#x8BED;&#x6CD5;,&#x5C06;&#x7EC4;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x3001;&#x6570;&#x636E;&#x751A;&#x81F3;&#x6837;&#x5F0F;&#x90FD;&#x805A;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;,&#x4F1A;&#x7F16;&#x8BD1;&#x6210;&#x666E;&#x901A;&#x7684;Javascript&#x3002;">&#x662F;&#x4E00;&#x79CD;JS&#x548C;HTML&#x6DF7;&#x5408;&#x7684;&#x8BED;&#x6CD5;,&#x5C06;&#x7EC4;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x3001;&#x6570;&#x636E;&#x751A;&#x81F3;&#x6837;&#x5F0F;&#x90FD;&#x805A;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;,&#x4F1A;&#x7F16;&#x8BD1;&#x6210;&#x666E;&#x901A;&#x7684;Javascript&#x3002; <a href="#t5&#x662F;&#x4E00;&#x79CD;JS&#x548C;HTML&#x6DF7;&#x5408;&#x7684;&#x8BED;&#x6CD5;,&#x5C06;&#x7EC4;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x3001;&#x6570;&#x636E;&#x751A;&#x81F3;&#x6837;&#x5F0F;&#x90FD;&#x805A;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;,&#x4F1A;&#x7F16;&#x8BD1;&#x6210;&#x666E;&#x901A;&#x7684;Javascript&#x3002;"> # </a></h4>
+<ul>
+<li>&#x9047;&#x5230;HTML&#x6807;&#x7B7E;(&#x4EE5; &lt; &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;HTML&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x9047;&#x5230;&#x4EE3;&#x7801;&#x5757;(&#x4EE5; { &#x5F00;&#x5934;)&#xFF0C;&#x5C31;&#x7528;JavaScript&#x89C4;&#x5219;&#x89E3;&#x6790;</li>
+<li>&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x65F6;&#x53EF;&#x4EE5;&#x8BA9;style&#x7B49;&#x4E8E;&#x4E00;&#x4E2A;&#x6837;&#x5F0F;&#x5BF9;&#x8C61;</li>
+<li>&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x7C7B;&#x65F6;&#x53EA;&#x80FD;&#x4F7F;&#x7528;className=&#x7C7B;&#x540D;,&#x56E0;&#x4E3A;class&#x662F;Javascript&#x5173;&#x952E;&#x5B57;<pre><code>var names = [&apos;&#x76D6;&#x4FDD;&#x5E73;&apos;,&apos;&#x7F51;&#x5934;&#x8854;&apos;,&apos;&#x6CA5;&#x9752;&apos;];
+var style = {backgroundColor:&quot;blue&quot;};
+ReactDOM.render(
+  &lt;ul&gt;
+      {
+          names.map(function (item,index) {
+              return &lt;li key={index} className=&quot;red&quot; style={style}&gt;{item}&lt;/li&gt;
+          })
+      }
+  &lt;/ul&gt;,document.getElementById(&apos;app&apos;)
+);
+</code></pre><h2 id="t66. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t66. &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h2>
+&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F88;&#x76F4;&#x89C2;&#x7684;&#x5C06;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x5206;&#x5272;&#x6210;&#x82E5;&#x5E72;&#x4E2A;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;,&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x5305;&#x542B;&#x81EA;&#x5DF1;&#x7684;&#x903B;&#x8F91;&#x548C;&#x6837;&#x5F0F; &#x518D;&#x5C06;&#x8FD9;&#x4E9B;&#x72EC;&#x7ACB;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x9875;&#x9762;&#x3002; &#x8FD9;&#x6837;&#x65E2;&#x51CF;&#x5C11;&#x4E86;&#x903B;&#x8F91;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x53C8;&#x5B9E;&#x73B0;&#x4E86;&#x4EE3;&#x7801;&#x7684;&#x91CD;&#x7528;</li>
+<li>&#x53EF;&#x7EC4;&#x5408;&#xFF1A;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x548C;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5D4C;&#x5957;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#xFF1A;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x5177;&#x6709;&#x72EC;&#x7ACB;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x4F7F;&#x7528;&#x5728;&#x591A;&#x4E2A;&#x573A;&#x666F;&#x4E2D;</li>
+<li>&#x53EF;&#x7EF4;&#x62A4;&#xFF1A;&#x6BCF;&#x4E2A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;&#x4EC5;&#x4EC5;&#x5305;&#x542B;&#x81EA;&#x8EAB;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x7406;&#x89E3;&#x548C;&#x7EF4;&#x62A4;<h4 id="t76.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;">6.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6; <a href="#t76.1 &#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;"> # </a></h4>
+React&#x5141;&#x8BB8;&#x5C06;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x6210;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x50CF;&#x63D2;&#x5165;&#x666E;&#x901A;HTML&#x6807;&#x7B7E;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x7F51;&#x9875;&#x4E2D;&#x63D2;&#x5165;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;</li>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x5FC5;&#x987B;&#x5927;&#x5199;</li>
+<li>&#x7EC4;&#x4EF6;&#x7C7B;&#x80FD;&#x4E14;&#x53EA;&#x80FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x9876;&#x5C42;&#x6807;&#x7B7E;<pre><code>var Message = React.createClass({
+  //&#x8868;&#x793A;&#x6B64;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;&#x957F;&#x4EC0;&#x4E48;&#x6837;&#x5B50;
+  //&#x8FD4;&#x56DE;&#x7684;&#x865A;&#x62DF;DOM&#x7ED3;&#x6784;&#x6709;&#x4E14;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x9876;&#x7EA7;&#x6807;&#x7B7E;
+  render(){
+      return (
+          &lt;div&gt;
+              hello
+          &lt;/div&gt;
+      );
+  }
+});
+ReactDOM.render(&lt;Message/&gt;,document.getElementById(&apos;app&apos;));
+</code></pre><h4 id="t86.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;">6.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027; <a href="#t86.2 &#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;"> # </a></h4>
+</li>
+<li>&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;,&#x4E00;&#x822C;&#x7528;&#x6765;&#x5B58;&#x653E;&#x7EC4;&#x4EF6;&#x521D;&#x59CB;&#x540E;&#x4E0D;&#x53D8;&#x7684;&#x6570;&#x636E;,&#x6BD4;&#x5982;&#x4EBA;&#x7684;&#x6027;&#x522B;&#xFF0C;&#x59D3;&#x540D;&#x7B49;</li>
+<li>&#x5C5E;&#x6027;&#x4E00;&#x822C;&#x7528;&#x4F5C;&#x7EC4;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4E00;&#x822C;&#x7531;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;,&#x6BD4;&#x5982;&#x4F60;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x822C;&#x662F;&#x7531;&#x4F60;&#x7236;&#x6BCD;&#x53D6;&#x7684;</li>
+<li>&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;this.props&#x4E2D;&#x53D6;&#x51FA;</li>
+<li>propTypes&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x548C;&#x7C7B;&#x578B;</li>
+<li>getDefaultProps&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B9A;&#x4F1A;&#x5F15;&#x8D77;&#x7EC4;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;
+```
+var Person = React.createClass({
+  //&#x7C7B;&#x4F3C;&#x4E8E;&#x7EA6;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x6587;&#x6863;,&#x7528;&#x4E8E;&#x8FD9;&#x662F;&#x9A8C;&#x8BC1;&#x4F20;&#x9012;&#x7ED9;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#xFF0C;
+  propTypes: {<pre><code>  //&#x5B9A;&#x4E49;msg&#x7684;&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5FC5;&#x987B;&#x4F20;&#x5165;
+  name: React.PropTypes.string.isRequired,
+  gender: React.PropTypes.string.isRequired,
+  age:React.PropTypes.number.isRequired
+</code></pre>  },
+  getDefaultProps:function(){<pre><code>  return {name:&apos;&#x65E0;&#x540D;&#x6C0F;&apos;}
+</code></pre>  },
+  render: function() {<pre><code>  //&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;this.props&#x4E2D;&#x53D6;&#x51FA;
+  return (&lt;h1&gt; {this.props.name}
+               {this.props.gender}
+               {this.props.age}
+          &lt;/h1&gt;);
+</code></pre>  }
+});</li>
+</ul>
+</blockquote>
+<p>var props = {
+    gender:&apos;&#x7537;&apos;,
+    age:18
+}</p>
+<p>ReactDOM.render(
+    <person {...props}="">,//&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x5728;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#x4F20;&#x5165;
+    document.getElementById(&apos;app&apos;)
+);
+```</person></p>
+<h4 id="t96.3 state&#x72B6;&#x6001;">6.3 state&#x72B6;&#x6001; <a href="#t96.3 state&#x72B6;&#x6001;"> # </a></h4>
+<ul>
+<li>&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x50CF;&#x4EBA;&#x7684;&#x5FC3;&#x60C5;&#xFF0C;&#x4F1A;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#xFF0C;&#x800C;&#x4E14;&#x53EA;&#x80FD;&#x7531;&#x81EA;&#x5DF1;&#x6765;&#x6539;&#x53D8;</li>
+<li>&#x7EC4;&#x4EF6;&#x4E00;&#x5F00;&#x59CB;&#x6709;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x72B6;&#x6001;,&#x7136;&#x540E;&#x7528;&#x6237;&#x4E92;&#x52A8;,&#x5BFC;&#x81F4;&#x72B6;&#x6001;&#x53D8;&#x5316;&#xFF0C;&#x4ECE;&#x800C;&#x89E6;&#x53D1;&#x754C;&#x9762;&#x91CD;&#x65B0;&#x6E32;&#x67D3;</li>
+<li>getInitialState&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x521D;&#x59CB;&#x72B6;&#x6001;</li>
+<li>&#x53EF;&#x4EE5;&#x7ED9;&#x6309;&#x94AE;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x6539;&#x53D8;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+<hr>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
