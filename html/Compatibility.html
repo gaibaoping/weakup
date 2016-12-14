@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeakUp</title>
+        
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+
+            <a href="../index.html" style="text-decoration: none">WeakUp</a>
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../1.html">首页</a></li>
+            <li><a href="../html/react.html">react</a></li>
+            <li><a href="../html/localStorage.html">localStorage</a></li>
+            <li><a href="../html/less.html">less</a></li>
+            <li><a href="../html/WebRTC.html">WebRTC</a></li>
+            <li class="active"><a href="../html/Compatibility.html">Compatibility</a></li>
+            <li><a href="#"><span></span>JS面向对象编程</a><ul><li><a href="../html/JS面向对象编程/oop1.html">oop1</a></li><li><a href="../html/JS面向对象编程/oop2.html">oop2</a></li><li><a href="../html/JS面向对象编程/oop3.html">oop3</a></li></ul></li>
+        </ul>
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0常见浏览器兼容性问题与解决方案">常见浏览器兼容性问题与解决方案</a><ul><li><a href="#t1浏览器兼容问题一：不同浏览器的标签默认的外补丁和内补丁不同">浏览器兼容问题一：不同浏览器的标签默认的外补丁和内补丁不同</a></li><li><a href="#t2浏览器兼容问题二：块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大">浏览器兼容问题二：块属性标签float后，又有横行的margin情况下，在IE6显示margin比设置的大</a></li><li><a href="#t3浏览器兼容问题三：设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度">浏览器兼容问题三：设置较小高度标签（一般小于10px），在IE6，IE7，遨游中高度超出自己设置高度</a></li><li><a href="#t4浏览器兼容问题四：行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug">浏览器兼容问题四：行内属性标签，设置display:block后采用float布局，又有横行的margin的情况，IE6间距bug</a></li><li><a href="#t5浏览器兼容问题五：图片默认有间距">浏览器兼容问题五：图片默认有间距</a></li><li><a href="#t6浏览器兼容问题六：标签最低高度设置min-height不兼容">浏览器兼容问题六：标签最低高度设置min-height不兼容</a></li><li><a href="#t7浏览器兼容问题七：透明度的兼容CSS设置">浏览器兼容问题七：透明度的兼容CSS设置</a></li><li><a href="#t8CSS hack">CSS hack</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0&#x5E38;&#x89C1;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x4E0E;&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x5E38;&#x89C1;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x4E0E;&#x89E3;&#x51B3;&#x65B9;&#x6848; <a href="#t0&#x5E38;&#x89C1;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x4E0E;&#x89E3;&#x51B3;&#x65B9;&#x6848;"> # </a></h2>
+<p>&#x6240;&#x8C13;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x6307;&#x56E0;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x540C;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x6790;&#xFF0C;&#x9020;&#x6210;&#x9875;&#x9762;&#x663E;&#x793A;&#x6548;&#x679C;&#x4E0D;&#x7EDF;&#x4E00;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;&#x662F;&#xFF0C;&#x65E0;&#x8BBA;&#x7528;&#x6237;&#x7528;&#x4EC0;&#x4E48;&#x6D4F;&#x89C8;&#x5668;&#x6765;&#x67E5;&#x770B;&#x6211;&#x4EEC;&#x7684;&#x7F51;&#x7AD9;&#x6216;&#x8005;&#x767B;&#x9646;&#x6211;&#x4EEC;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x90FD;&#x5E94;&#x8BE5;&#x662F;&#x7EDF;&#x4E00;&#x7684;&#x663E;&#x793A;&#x6548;&#x679C;&#x3002;&#x6240;&#x4EE5;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x662F;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7ECF;&#x5E38;&#x4F1A;&#x78B0;&#x5230;&#x548C;&#x5FC5;&#x987B;&#x8981;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h4 id="t1&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x7684;&#x5916;&#x8865;&#x4E01;&#x548C;&#x5185;&#x8865;&#x4E01;&#x4E0D;&#x540C;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x7684;&#x5916;&#x8865;&#x4E01;&#x548C;&#x5185;&#x8865;&#x4E01;&#x4E0D;&#x540C; <a href="#t1&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E00;&#xFF1A;&#x4E0D;&#x540C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6807;&#x7B7E;&#x9ED8;&#x8BA4;&#x7684;&#x5916;&#x8865;&#x4E01;&#x548C;&#x5185;&#x8865;&#x4E01;&#x4E0D;&#x540C;"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;&#xFF1A;&#x968F;&#x4FBF;&#x5199;&#x51E0;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C;&#x4E0D;&#x52A0;&#x6837;&#x5F0F;&#x63A7;&#x5236;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5404;&#x81EA;&#x7684;margin &#x548C;padding&#x5DEE;&#x5F02;&#x8F83;&#x5927;&#x3002;</li>
+<li>&#x78B0;&#x5230;&#x9891;&#x7387;:100%</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;CSS&#x91CC;    *{margin:0;padding:0;}</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x8FD9;&#x4E2A;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4E5F;&#x662F;&#x6700;&#x6613;&#x89E3;&#x51B3;&#x7684;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;CSS&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x90FD;&#x4F1A;&#x7528;&#x901A;&#x914D;&#x7B26;*&#x6765;&#x8BBE;&#x7F6E;&#x5404;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x5185;&#x5916;&#x8865;&#x4E01;&#x662F;0&#x3002;</li>
+</ul>
+<h4 id="t2&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x5757;&#x5C5E;&#x6027;&#x6807;&#x7B7E;float&#x540E;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;IE6&#x663E;&#x793A;margin&#x6BD4;&#x8BBE;&#x7F6E;&#x7684;&#x5927;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x5757;&#x5C5E;&#x6027;&#x6807;&#x7B7E;float&#x540E;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;IE6&#x663E;&#x793A;margin&#x6BD4;&#x8BBE;&#x7F6E;&#x7684;&#x5927; <a href="#t2&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E8C;&#xFF1A;&#x5757;&#x5C5E;&#x6027;&#x6807;&#x7B7E;float&#x540E;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;IE6&#x663E;&#x793A;margin&#x6BD4;&#x8BBE;&#x7F6E;&#x7684;&#x5927;"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;:&#x5E38;&#x89C1;&#x75C7;&#x72B6;&#x662F;IE6&#x4E2D;&#x540E;&#x9762;&#x7684;&#x4E00;&#x5757;&#x88AB;&#x9876;&#x5230;&#x4E0B;&#x4E00;&#x884C;</li>
+<li>&#x78B0;&#x5230;&#x9891;&#x7387;&#xFF1A;90%&#xFF08;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x70B9;&#x7684;&#x9875;&#x9762;&#x90FD;&#x4F1A;&#x78B0;&#x5230;&#xFF0C;float&#x5E03;&#x5C40;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#xFF09;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x5728;float&#x7684;&#x6807;&#x7B7E;&#x6837;&#x5F0F;&#x63A7;&#x5236;&#x4E2D;&#x52A0;&#x5165; display:inline;&#x5C06;&#x5176;&#x8F6C;&#x5316;&#x4E3A;&#x884C;&#x5185;&#x5C5E;&#x6027;</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;div+CSS&#x5E03;&#x5C40;&#x4E86;&#xFF0C;&#x800C;div&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x5757;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x6A2A;&#x5411;&#x5E03;&#x5C40;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x90FD;&#x662F;&#x7528;div float&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6A2A;&#x5411;&#x7684;&#x95F4;&#x8DDD;&#x8BBE;&#x7F6E;&#x5982;&#x679C;&#x7528;margin&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5FC5;&#x7136;&#x4F1A;&#x78B0;&#x5230;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+<h4 id="t3&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x8BBE;&#x7F6E;&#x8F83;&#x5C0F;&#x9AD8;&#x5EA6;&#x6807;&#x7B7E;&#xFF08;&#x4E00;&#x822C;&#x5C0F;&#x4E8E;10px&#xFF09;&#xFF0C;&#x5728;IE6&#xFF0C;IE7&#xFF0C;&#x9068;&#x6E38;&#x4E2D;&#x9AD8;&#x5EA6;&#x8D85;&#x51FA;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x8BBE;&#x7F6E;&#x8F83;&#x5C0F;&#x9AD8;&#x5EA6;&#x6807;&#x7B7E;&#xFF08;&#x4E00;&#x822C;&#x5C0F;&#x4E8E;10px&#xFF09;&#xFF0C;&#x5728;IE6&#xFF0C;IE7&#xFF0C;&#x9068;&#x6E38;&#x4E2D;&#x9AD8;&#x5EA6;&#x8D85;&#x51FA;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6; <a href="#t3&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E09;&#xFF1A;&#x8BBE;&#x7F6E;&#x8F83;&#x5C0F;&#x9AD8;&#x5EA6;&#x6807;&#x7B7E;&#xFF08;&#x4E00;&#x822C;&#x5C0F;&#x4E8E;10px&#xFF09;&#xFF0C;&#x5728;IE6&#xFF0C;IE7&#xFF0C;&#x9068;&#x6E38;&#x4E2D;&#x9AD8;&#x5EA6;&#x8D85;&#x51FA;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;&#xFF1A;IE6&#x3001;7&#x548C;&#x9068;&#x6E38;&#x91CC;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x9AD8;&#x5EA6;&#x4E0D;&#x53D7;&#x63A7;&#x5236;&#xFF0C;&#x8D85;&#x51FA;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x7684;&#x9AD8;&#x5EA6;</li>
+<li>&#x78B0;&#x5230;&#x9891;&#x7387;&#xFF1A;60%</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x7ED9;&#x8D85;&#x51FA;&#x9AD8;&#x5EA6;&#x7684;&#x6807;&#x7B7E;&#x8BBE;&#x7F6E;overflow:hidden;&#x6216;&#x8005;&#x8BBE;&#x7F6E;&#x884C;&#x9AD8;line-height &#x5C0F;&#x4E8E;&#x4F60;&#x8BBE;&#x7F6E;&#x7684;&#x9AD8;&#x5EA6;&#x3002;</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E00;&#x822C;&#x51FA;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E;&#x5C0F;&#x5706;&#x89D2;&#x80CC;&#x666F;&#x7684;&#x6807;&#x7B7E;&#x91CC;&#x3002;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#x662F;IE8&#x4E4B;&#x524D;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x4F1A;&#x7ED9;&#x6807;&#x7B7E;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x9AD8;&#x7684;&#x9AD8;&#x5EA6;&#x3002;&#x5373;&#x4F7F;&#x4F60;&#x7684;&#x6807;&#x7B7E;&#x662F;&#x7A7A;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x9AD8;&#x5EA6;&#x8FD8;&#x662F;&#x4F1A;&#x8FBE;&#x5230;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x9AD8;&#x3002;</li>
+</ul>
+<h4 id="t4&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x56DB;&#xFF1A;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x8BBE;&#x7F6E;display:block&#x540E;&#x91C7;&#x7528;float&#x5E03;&#x5C40;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x7684;&#x60C5;&#x51B5;&#xFF0C;IE6&#x95F4;&#x8DDD;bug">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x56DB;&#xFF1A;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x8BBE;&#x7F6E;display:block&#x540E;&#x91C7;&#x7528;float&#x5E03;&#x5C40;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x7684;&#x60C5;&#x51B5;&#xFF0C;IE6&#x95F4;&#x8DDD;bug <a href="#t4&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x56DB;&#xFF1A;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x8BBE;&#x7F6E;display:block&#x540E;&#x91C7;&#x7528;float&#x5E03;&#x5C40;&#xFF0C;&#x53C8;&#x6709;&#x6A2A;&#x884C;&#x7684;margin&#x7684;&#x60C5;&#x51B5;&#xFF0C;IE6&#x95F4;&#x8DDD;bug"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;&#xFF1A;IE6&#x91CC;&#x7684;&#x95F4;&#x8DDD;&#x6BD4;&#x8D85;&#x8FC7;&#x8BBE;&#x7F6E;&#x7684;&#x95F4;&#x8DDD;</li>
+<li>&#x78B0;&#x5230;&#x51E0;&#x7387;&#xFF1A;20%</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x5728;display:block;&#x540E;&#x9762;&#x52A0;&#x5165;display:inline;display:table;</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x4E3A;&#x4E86;&#x8BBE;&#x7F6E;&#x5BBD;&#x9AD8;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8BBE;&#x7F6E;display:block;(&#x9664;&#x4E86;input&#x6807;&#x7B7E;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;)&#x3002;&#x5728;&#x7528;float&#x5E03;&#x5C40;&#x5E76;&#x6709;&#x6A2A;&#x5411;&#x7684;margin&#x540E;&#xFF0C;&#x5728;IE6&#x4E0B;&#xFF0C;&#x4ED6;&#x5C31;&#x5177;&#x6709;&#x4E86;&#x5757;&#x5C5E;&#x6027;float&#x540E;&#x7684;&#x6A2A;&#x5411;margin&#x7684;bug&#x3002;&#x4E0D;&#x8FC7;&#x56E0;&#x4E3A;&#x5B83;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x518D;&#x52A0;&#x4E0A;display:inline&#x7684;&#x8BDD;&#xFF0C;&#x5B83;&#x7684;&#x9AD8;&#x5BBD;&#x5C31;&#x4E0D;&#x53EF;&#x8BBE;&#x4E86;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x5728;display:inline&#x540E;&#x9762;&#x52A0;&#x5165;display:talbe&#x3002;</li>
+</ul>
+<h4 id="t5&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E94;&#xFF1A;&#x56FE;&#x7247;&#x9ED8;&#x8BA4;&#x6709;&#x95F4;&#x8DDD;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E94;&#xFF1A;&#x56FE;&#x7247;&#x9ED8;&#x8BA4;&#x6709;&#x95F4;&#x8DDD; <a href="#t5&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E94;&#xFF1A;&#x56FE;&#x7247;&#x9ED8;&#x8BA4;&#x6709;&#x95F4;&#x8DDD;"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;&#xFF1A;&#x51E0;&#x4E2A;img&#x6807;&#x7B7E;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6709;&#x4E9B;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x6709;&#x9ED8;&#x8BA4;&#x7684;&#x95F4;&#x8DDD;&#xFF0C;&#x52A0;&#x4E86;&#x95EE;&#x9898;&#x4E00;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x901A;&#x914D;&#x7B26;&#x4E5F;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</li>
+<li>&#x78B0;&#x5230;&#x51E0;&#x7387;&#xFF1A;20%</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x4F7F;&#x7528;float&#x5C5E;&#x6027;&#x4E3A;img&#x5E03;&#x5C40;</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x56E0;&#x4E3A;img&#x6807;&#x7B7E;&#x662F;&#x884C;&#x5185;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x4E0D;&#x8D85;&#x51FA;&#x5BB9;&#x5668;&#x5BBD;&#x5EA6;&#xFF0C;img&#x6807;&#x7B7E;&#x90FD;&#x4F1A;&#x6392;&#x5728;&#x4E00;&#x884C;&#x91CC;&#xFF0C;&#x4F46;&#x662F;&#x90E8;&#x5206;&#x6D4F;&#x89C8;&#x5668;&#x7684;img&#x6807;&#x7B7E;&#x4E4B;&#x95F4;&#x4F1A;&#x6709;&#x4E2A;&#x95F4;&#x8DDD;&#x3002;&#x53BB;&#x6389;&#x8FD9;&#x4E2A;&#x95F4;&#x8DDD;&#x4F7F;&#x7528;float&#x662F;&#x6B63;&#x9053;&#x3002;&#xFF08;&#x6211;&#x7684;&#x4E00;&#x4E2A;&#x5B66;&#x751F;&#x4F7F;&#x7528;&#x8D1F;margin&#xFF0C;&#x867D;&#x7136;&#x80FD;&#x89E3;&#x51B3;&#xFF0C;&#x4F46;&#x8D1F;margin&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x5BB9;&#x6613;&#x5F15;&#x8D77;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x7981;&#x6B62;&#x4ED6;&#x4EEC;&#x4F7F;&#x7528;&#xFF09;</li>
+</ul>
+<h4 id="t6&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x516D;&#xFF1A;&#x6807;&#x7B7E;&#x6700;&#x4F4E;&#x9AD8;&#x5EA6;&#x8BBE;&#x7F6E;min-height&#x4E0D;&#x517C;&#x5BB9;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x516D;&#xFF1A;&#x6807;&#x7B7E;&#x6700;&#x4F4E;&#x9AD8;&#x5EA6;&#x8BBE;&#x7F6E;min-height&#x4E0D;&#x517C;&#x5BB9; <a href="#t6&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x516D;&#xFF1A;&#x6807;&#x7B7E;&#x6700;&#x4F4E;&#x9AD8;&#x5EA6;&#x8BBE;&#x7F6E;min-height&#x4E0D;&#x517C;&#x5BB9;"> # </a></h4>
+<ul>
+<li>&#x95EE;&#x9898;&#x75C7;&#x72B6;&#xFF1A;&#x56E0;&#x4E3A;min-height&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x517C;&#x5BB9;&#x7684;CSS&#x5C5E;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x8BBE;&#x7F6E;min-height&#x65F6;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x88AB;&#x5404;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;</li>
+<li>&#x78B0;&#x5230;&#x51E0;&#x7387;&#xFF1A;5%</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x7684;&#x6700;&#x5C0F;&#x9AD8;&#x5EA6;200px&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;&#xFF1A;{min-height:200px; height:auto !important; height:200px; overflow:visible;}</li>
+<li>&#x5907;&#x6CE8;&#xFF1A;&#x5728;B/S&#x7CFB;&#x7EDF;&#x524D;&#x7AEF;&#x5F00;&#x65F6;&#xFF0C;&#x6709;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x53C8;&#x8FD9;&#x79CD;&#x9700;&#x6C42;&#x3002;&#x5F53;&#x5185;&#x5BB9;&#x5C0F;&#x4E8E;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x5982;300px&#xFF09;&#x65F6;&#x3002;&#x5BB9;&#x5668;&#x7684;&#x9AD8;&#x5EA6;&#x4E3A;300px&#xFF1B;&#x5F53;&#x5185;&#x5BB9;&#x9AD8;&#x5EA6;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;&#x65F6;&#xFF0C;&#x5BB9;&#x5668;&#x9AD8;&#x5EA6;&#x88AB;&#x6491;&#x9AD8;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x51FA;&#x73B0;&#x6EDA;&#x52A8;&#x6761;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5C31;&#x4F1A;&#x9762;&#x4E34;&#x8FD9;&#x4E2A;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x3002;</li>
+</ul>
+<h4 id="t7&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E03;&#xFF1A;&#x900F;&#x660E;&#x5EA6;&#x7684;&#x517C;&#x5BB9;CSS&#x8BBE;&#x7F6E;">&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E03;&#xFF1A;&#x900F;&#x660E;&#x5EA6;&#x7684;&#x517C;&#x5BB9;CSS&#x8BBE;&#x7F6E; <a href="#t7&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4E03;&#xFF1A;&#x900F;&#x660E;&#x5EA6;&#x7684;&#x517C;&#x5BB9;CSS&#x8BBE;&#x7F6E;"> # </a></h4>
+<ul>
+<li><p>&#x505A;&#x517C;&#x5BB9;&#x9875;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;&#x6BCF;&#x5199;&#x4E00;&#x5C0F;&#x6BB5;&#x4EE3;&#x7801;&#xFF08;&#x5E03;&#x5C40;&#x4E2D;&#x7684;&#x4E00;&#x884C;&#x6216;&#x8005;&#x4E00;&#x5757;&#xFF09;&#x6211;&#x4EEC;&#x90FD;&#x8981;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x770B;&#x662F;&#x5426;&#x517C;&#x5BB9;&#xFF0C;&#x5F53;&#x7136;&#x719F;&#x7EC3;&#x5230;&#x4E00;&#x5B9A;&#x7684;&#x7A0B;&#x5EA6;&#x5C31;&#x6CA1;&#x8FD9;&#x4E48;&#x9EBB;&#x70E6;&#x4E86;&#x3002;&#x5EFA;&#x8BAE;&#x7ECF;&#x5E38;&#x4F1A;&#x78B0;&#x5230;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x7684;&#x65B0;&#x624B;&#x4F7F;&#x7528;&#x3002;&#x5F88;&#x591A;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x90FD;&#x662F;&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x6807;&#x7B7E;&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x89E3;&#x6790;&#x4E0D;&#x540C;&#x9020;&#x6210;&#x7684;&#xFF0C;&#x53EA;&#x8981;&#x6211;&#x4EEC;&#x7A0D;&#x52A0;&#x8BBE;&#x7F6E;&#x90FD;&#x80FD;&#x8F7B;&#x677E;&#x5730;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x719F;&#x6089;&#x6807;&#x7B7E;&#x7684;&#x9ED8;&#x8BA4;&#x5C5E;&#x6027;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x7406;&#x89E3;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x51FA;&#x73B0;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x4EE5;&#x53CA;&#x600E;&#x4E48;&#x53BB;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#x3002;</p>
+<h4 id="t8CSS hack">CSS hack <a href="#t8CSS hack"> # </a></h4>
+<p>&#x6211;&#x5F88;&#x5C11;&#x4F7F;&#x7528;hacker&#x7684;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#x5427;&#xFF0C;&#x6211;&#x4E0D;&#x559C;&#x6B22;&#x5199;&#x7684;&#x4EE3;&#x7801;IE&#x4E0D;&#x517C;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x7528;hack&#x6765;&#x89E3;&#x51B3;&#x3002;&#x4E0D;&#x8FC7;hacker&#x8FD8;&#x662F;&#x975E;&#x5E38;&#x597D;&#x7528;&#x7684;&#x3002;&#x4F7F;&#x7528;hacker&#x6211;&#x53EF;&#x4EE5;&#x628A;&#x6D4F;&#x89C8;&#x5668;&#x5206;&#x4E3A;3&#x7C7B;&#xFF1A;IE6 &#xFF1B;IE7&#x548C;&#x9068;&#x6E38;&#xFF1B;&#x5176;&#x4ED6;&#xFF08;IE8 chrome ff safari opera&#x7B49;&#xFF09;</p>
+</li>
+<li><p>IE6&#x8BA4;&#x8BC6;&#x7684;hacker &#x662F;&#x4E0B;&#x5212;&#x7EBF;_ &#x548C;&#x661F;&#x53F7; *</p>
+</li>
+<li>IE7 &#x9068;&#x6E38;&#x8BA4;&#x8BC6;&#x7684;hacker&#x662F;&#x661F;&#x53F7; *
+&#x6BD4;&#x5982;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;CSS&#x8BBE;&#x7F6E;&#xFF1A;<blockquote>
+<p>height:300px;*height:200px;_height:100px; </p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>IE6&#x6D4F;&#x89C8;&#x5668;&#x5728;&#x8BFB;&#x5230;height:300px&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8BA4;&#x4E3A;&#x9AD8;&#x65F6;300px&#xFF1B;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x8BFB;&#xFF0C;&#x4ED6;&#x4E5F;&#x8BA4;&#x8BC6;<em>heihgt&#xFF0C; &#x6240;&#x4EE5;&#x5F53;IE6&#x8BFB;&#x5230;</em>height:200px&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x524D;&#x4E00;&#x6761;&#x7684;&#x76F8;&#x51B2;&#x7A81;&#x8BBE;&#x7F6E;&#xFF0C;&#x8BA4;&#x4E3A;&#x9AD8;&#x5EA6;&#x662F;200px&#x3002;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x8BFB;&#xFF0C;IE6&#x8FD8;&#x8BA4;&#x8BC6;_height,&#x6240;&#x4EE5;&#x4ED6;&#x53C8;&#x4F1A;&#x8986;&#x76D6;&#x6389;200px&#x9AD8;&#x7684;&#x8BBE;&#x7F6E;&#xFF0C;&#x628A;&#x9AD8;&#x5EA6;&#x8BBE;&#x7F6E;&#x4E3A;100px&#xFF1B;</p>
+<p>IE7&#x548C;&#x9068;&#x6E38;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#x4ECE;&#x9AD8;&#x5EA6;300px&#x7684;&#x8BBE;&#x7F6E;&#x5F80;&#x4E0B;&#x8BFB;&#x3002;&#x5F53;&#x5B83;&#x4EEC;&#x8BFB;&#x5230;*height200px&#x7684;&#x65F6;&#x5019;&#x5C31;&#x505C;&#x4E0B;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E0D;&#x8BA4;&#x8BC6;_height&#x3002;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x4F1A;&#x628A;&#x9AD8;&#x5EA6;&#x89E3;&#x6790;&#x4E3A;200px&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x53EA;&#x8BA4;&#x8BC6;&#x7B2C;&#x4E00;&#x4E2A;height:300px;&#x6240;&#x4EE5;&#x4ED6;&#x4EEC;&#x4F1A;&#x628A;&#x9AD8;&#x5EA6;&#x89E3;&#x6790;&#x4E3A;300px&#x3002;&#x56E0;&#x4E3A;&#x4F18;&#x5148;&#x7EA7;&#x76F8;&#x540C;&#x4E14;&#x60F3;&#x51B2;&#x7A81;&#x7684;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x540E;&#x4E00;&#x4E2A;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x524D;&#x4E00;&#x4E2A;&#xFF0C;&#x6240;&#x4EE5;&#x4E66;&#x5199;&#x7684;&#x6B21;&#x5E8F;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;</p>
+</blockquote>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

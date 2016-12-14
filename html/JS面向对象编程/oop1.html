@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeakUp</title>
+        
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+
+            <a href="../../index.html" style="text-decoration: none">WeakUp</a>
+            
+        </div>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li><a href="../../1.html">首页</a></li>
+            <li><a href="../react.html">react</a></li>
+            <li><a href="../localStorage.html">localStorage</a></li>
+            <li><a href="../less.html">less</a></li>
+            <li><a href="../WebRTC.html">WebRTC</a></li><li><a href="../../html/Compatibility.html">Compatibility</a></li><li class="active"><a href="#"><span></span>JS面向对象编程</a><ul><li class="active"><a href="../../html/JS面向对象编程/oop1.html">oop1</a></li><li><a href="../../html/JS面向对象编程/oop2.html">oop2</a></li><li><a href="../../html/JS面向对象编程/oop3.html">oop3</a></li></ul></li></ul>
+        </div>
+        
+        
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0Javascript 面向对象编程（一）：封装">Javascript 面向对象编程（一）：封装</a><ul><li><a href="#t1一、 生成实例对象的原始模式">一、 生成实例对象的原始模式</a></li><li><a href="#t2二、 原始模式的改进">二、 原始模式的改进</a></li><li><a href="#t3三、 构造函数模式">三、 构造函数模式</a></li><li><a href="#t4四、构造函数模式的问题">四、构造函数模式的问题</a></li><li><a href="#t5五、 Prototype模式">五、 Prototype模式</a></li><li><a href="#t6六、 Prototype模式的验证方法">六、 Prototype模式的验证方法</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h2 id="t0Javascript &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF08;&#x4E00;&#xFF09;&#xFF1A;&#x5C01;&#x88C5;">Javascript &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF08;&#x4E00;&#xFF09;&#xFF1A;&#x5C01;&#x88C5; <a href="#t0Javascript &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF08;&#x4E00;&#xFF09;&#xFF1A;&#x5C01;&#x88C5;"> # </a></h2>
+<blockquote>
+<p>Javascript&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x5BF9;&#x8C61;&#xFF08;object-based&#xFF09;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4F60;&#x9047;&#x5230;&#x7684;&#x6240;&#x6709;&#x4E1C;&#x897F;&#x51E0;&#x4E4E;&#x90FD;&#x662F;&#x5BF9;&#x8C61;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x53C8;&#x4E0D;&#x662F;&#x4E00;&#x79CD;&#x771F;&#x6B63;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF08;OOP&#xFF09;&#x8BED;&#x8A00;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x8BED;&#x6CD5;&#x4E2D;&#x6CA1;&#x6709;class&#xFF08;&#x7C7B;&#xFF09;&#x3002;
+&#x90A3;&#x4E48;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x628A;&quot;&#x5C5E;&#x6027;&quot;&#xFF08;property&#xFF09;&#x548C;&quot;&#x65B9;&#x6CD5;&quot;&#xFF08;method&#xFF09;&#xFF0C;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x751A;&#x81F3;&#x8981;&#x4ECE;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#x5462;&#xFF1F;</p>
+</blockquote>
+<h4 id="t1&#x4E00;&#x3001; &#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x59CB;&#x6A21;&#x5F0F;">&#x4E00;&#x3001; &#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x59CB;&#x6A21;&#x5F0F; <a href="#t1&#x4E00;&#x3001; &#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x59CB;&#x6A21;&#x5F0F;"> # </a></h4>
+<p>&#x5047;&#x5B9A;&#x6211;&#x4EEC;&#x628A;&#x732B;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x6709;&quot;&#x540D;&#x5B57;&quot;&#x548C;&quot;&#x989C;&#x8272;&quot;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;var Cat = {
+&#x3000;&#x3000;&#x3000;&#x3000;name : &apos;&apos;,
+&#x3000;&#x3000;&#x3000;&#x3000;color : &apos;&apos;
+&#x3000;&#x3000;}
+</code></pre><p>&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x89C4;&#x683C;&#xFF08;schema&#xFF09;&#xFF0C;&#x751F;&#x6210;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;var cat1 = {}; // &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;
+&#x3000;&#x3000;&#x3000;&#x3000;cat1.name = &quot;&#x5927;&#x6BDB;&quot;; // &#x6309;&#x7167;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8D4B;&#x503C;
+&#x3000;&#x3000;&#x3000;&#x3000;cat1.color = &quot;&#x9EC4;&#x8272;&quot;;
+&#x3000;&#x3000;var cat2 = {};
+&#x3000;&#x3000;&#x3000;&#x3000;cat2.name = &quot;&#x4E8C;&#x6BDB;&quot;;
+&#x3000;&#x3000;&#x3000;&#x3000;cat2.color = &quot;&#x9ED1;&#x8272;&quot;;
+</code></pre><p>&#x597D;&#x4E86;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5C01;&#x88C5;&#x4E86;&#xFF0C;&#x628A;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x5C01;&#x88C5;&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x91CC;&#x9762;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x5199;&#x6CD5;&#x6709;&#x4E24;&#x4E2A;&#x7F3A;&#x70B9;&#xFF0C;&#x4E00;&#x662F;&#x5982;&#x679C;&#x591A;&#x751F;&#x6210;&#x51E0;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x5199;&#x8D77;&#x6765;&#x5C31;&#x975E;&#x5E38;&#x9EBB;&#x70E6;&#xFF1B;&#x4E8C;&#x662F;&#x5B9E;&#x4F8B;&#x4E0E;&#x539F;&#x578B;&#x4E4B;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x529E;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6709;&#x4EC0;&#x4E48;&#x8054;&#x7CFB;&#x3002;</p>
+<h4 id="t2&#x4E8C;&#x3001; &#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x7684;&#x6539;&#x8FDB;">&#x4E8C;&#x3001; &#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x7684;&#x6539;&#x8FDB; <a href="#t2&#x4E8C;&#x3001; &#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x7684;&#x6539;&#x8FDB;"> # </a></h4>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x89E3;&#x51B3;&#x4EE3;&#x7801;&#x91CD;&#x590D;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;function Cat(name,color) {
+&#x3000;&#x3000;&#x3000;&#x3000;return {
+&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;name:name,
+&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;color:color
+&#x3000;&#x3000;&#x3000;&#x3000;}
+&#x3000;&#x3000;}
+</code></pre><p>&#x7136;&#x540E;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x7B49;&#x4E8E;&#x662F;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>&#x3000;&#x3000;var cat1 = Cat(&quot;&#x5927;&#x6BDB;&quot;,&quot;&#x9EC4;&#x8272;&quot;);
+&#x3000;&#x3000;var cat2 = Cat(&quot;&#x4E8C;&#x6BDB;&quot;,&quot;&#x9ED1;&#x8272;&quot;);
+</code></pre><p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x7684;&#x95EE;&#x9898;&#x4F9D;&#x7136;&#x662F;&#xFF0C;cat1&#x548C;cat2&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x5185;&#x5728;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x4E0D;&#x80FD;&#x53CD;&#x6620;&#x51FA;&#x5B83;&#x4EEC;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h4 id="t3&#x4E09;&#x3001; &#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;">&#x4E09;&#x3001; &#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F; <a href="#t3&#x4E09;&#x3001; &#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;"> # </a></h4>
+<p>&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4ECE;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x7684;&#x95EE;&#x9898;&#xFF0C;Javascript&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;Constructor&#xFF09;&#x6A21;&#x5F0F;&#x3002;
+&#x6240;&#x8C13;&quot;&#x6784;&#x9020;&#x51FD;&#x6570;&quot;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;this&#x53D8;&#x91CF;&#x3002;&#x5BF9;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4F7F;&#x7528;new&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x5C31;&#x80FD;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x4E14;this&#x53D8;&#x91CF;&#x4F1A;&#x7ED1;&#x5B9A;&#x5728;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E0A;&#x3002;
+&#x6BD4;&#x5982;&#xFF0C;&#x732B;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;&#xFF0C;</p>
+<pre><code>&#x3000;&#x3000;function Cat(name,color){
+&#x3000;&#x3000;&#x3000;&#x3000;this.name=name;
+&#x3000;&#x3000;&#x3000;&#x3000;this.color=color;
+&#x3000;&#x3000;}
+</code></pre><p>&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x5C31;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E86;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;var cat1 = new Cat(&quot;&#x5927;&#x6BDB;&quot;,&quot;&#x9EC4;&#x8272;&quot;);
+&#x3000;&#x3000;var cat2 = new Cat(&quot;&#x4E8C;&#x6BDB;&quot;,&quot;&#x9ED1;&#x8272;&quot;);
+&#x3000;&#x3000;alert(cat1.name); // &#x5927;&#x6BDB;
+&#x3000;&#x3000;alert(cat1.color); // &#x9EC4;&#x8272;
+&#x8FD9;&#x65F6;cat1&#x548C;cat2&#x4F1A;&#x81EA;&#x52A8;&#x542B;&#x6709;&#x4E00;&#x4E2A;constructor&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x5B83;&#x4EEC;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;
+&#x3000;&#x3000;alert(cat1.constructor == Cat); //true
+&#x3000;&#x3000;alert(cat2.constructor == Cat); //true
+Javascript&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;instanceof&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x9A8C;&#x8BC1;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E0E;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;
+&#x3000;&#x3000;alert(cat1 instanceof Cat); //true
+&#x3000;&#x3000;alert(cat2 instanceof Cat); //true
+</code></pre><h4 id="t4&#x56DB;&#x3001;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x7684;&#x95EE;&#x9898;">&#x56DB;&#x3001;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x7684;&#x95EE;&#x9898; <a href="#t4&#x56DB;&#x3001;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x7684;&#x95EE;&#x9898;"> # </a></h4>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#x5F88;&#x597D;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x6D6A;&#x8D39;&#x5185;&#x5B58;&#x7684;&#x95EE;&#x9898;&#x3002;
+&#x8BF7;&#x770B;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x4E3A;Cat&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x4E0D;&#x53D8;&#x7684;&#x5C5E;&#x6027;type&#xFF08;&#x79CD;&#x7C7B;&#xFF09;&#xFF0C;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;eat&#xFF08;&#x5403;&#xFF09;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x539F;&#x578B;&#x5BF9;&#x8C61;Cat&#x5C31;&#x53D8;&#x6210;&#x4E86;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code>&#x3000;&#x3000;function Cat(name,color){
+&#x3000;&#x3000;&#x3000;&#x3000;this.name = name;
+&#x3000;&#x3000;&#x3000;&#x3000;this.color = color;
+&#x3000;&#x3000;&#x3000;&#x3000;this.type = &quot;&#x732B;&#x79D1;&#x52A8;&#x7269;&quot;;
+&#x3000;&#x3000;&#x3000;&#x3000;this.eat = function(){alert(&quot;&#x5403;&#x8001;&#x9F20;&quot;);};
+&#x3000;&#x3000;}
+</code></pre><p>&#x8FD8;&#x662F;&#x91C7;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code>&#x3000;&#x3000;var cat1 = new Cat(&quot;&#x5927;&#x6BDB;&quot;,&quot;&#x9EC4;&#x8272;&quot;);
+&#x3000;&#x3000;var cat2 = new Cat (&quot;&#x4E8C;&#x6BDB;&quot;,&quot;&#x9ED1;&#x8272;&quot;);
+&#x3000;&#x3000;alert(cat1.type); // &#x732B;&#x79D1;&#x52A8;&#x7269;
+&#x3000;&#x3000;cat1.eat(); // &#x5403;&#x8001;&#x9F20;
+</code></pre><p>&#x8868;&#x9762;&#x4E0A;&#x597D;&#x50CF;&#x6CA1;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x5F0A;&#x7AEF;&#x3002;&#x90A3;&#x5C31;&#x662F;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF0C;type&#x5C5E;&#x6027;&#x548C;eat()&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x6BCF;&#x4E00;&#x6B21;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x4E3A;&#x91CD;&#x590D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x591A;&#x5360;&#x7528;&#x4E00;&#x4E9B;&#x5185;&#x5B58;&#x3002;&#x8FD9;&#x6837;&#x65E2;&#x4E0D;&#x73AF;&#x4FDD;&#xFF0C;&#x4E5F;&#x7F3A;&#x4E4F;&#x6548;&#x7387;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;alert(cat1.eat == cat2.eat); //false
+</code></pre><p>&#x80FD;&#x4E0D;&#x80FD;&#x8BA9;type&#x5C5E;&#x6027;&#x548C;eat()&#x65B9;&#x6CD5;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x6B21;&#xFF0C;&#x7136;&#x540E;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x6307;&#x5411;&#x90A3;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;&#x5462;&#xFF1F;&#x56DE;&#x7B54;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#x3002;</p>
+<h4 id="t5&#x4E94;&#x3001; Prototype&#x6A21;&#x5F0F;">&#x4E94;&#x3001; Prototype&#x6A21;&#x5F0F; <a href="#t5&#x4E94;&#x3001; Prototype&#x6A21;&#x5F0F;"> # </a></h4>
+<p>Javascript&#x89C4;&#x5B9A;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;prototype&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x4F1A;&#x88AB;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x4F8B;&#x7EE7;&#x627F;&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x90A3;&#x4E9B;&#x4E0D;&#x53D8;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x5728;prototype&#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;function Cat(name,color){
+&#x3000;&#x3000;&#x3000;&#x3000;this.name = name;
+&#x3000;&#x3000;&#x3000;&#x3000;this.color = color;
+&#x3000;&#x3000;}
+&#x3000;&#x3000;Cat.prototype.type = &quot;&#x732B;&#x79D1;&#x52A8;&#x7269;&quot;;
+&#x3000;&#x3000;Cat.prototype.eat = function(){alert(&quot;&#x5403;&#x8001;&#x9F20;&quot;)};
+</code></pre><p>&#x7136;&#x540E;&#xFF0C;&#x751F;&#x6210;&#x5B9E;&#x4F8B;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;var cat1 = new Cat(&quot;&#x5927;&#x6BDB;&quot;,&quot;&#x9EC4;&#x8272;&quot;);
+&#x3000;&#x3000;var cat2 = new Cat(&quot;&#x4E8C;&#x6BDB;&quot;,&quot;&#x9ED1;&#x8272;&quot;);
+&#x3000;&#x3000;alert(cat1.type); // &#x732B;&#x79D1;&#x52A8;&#x7269;
+&#x3000;&#x3000;cat1.eat(); // &#x5403;&#x8001;&#x9F20;
+</code></pre><p>&#x8FD9;&#x65F6;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x7684;type&#x5C5E;&#x6027;&#x548C;eat()&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x5B9E;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;&#xFF0C;&#x6307;&#x5411;prototype&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x63D0;&#x9AD8;&#x4E86;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;alert(cat1.eat == cat2.eat); //true
+</code></pre><h4 id="t6&#x516D;&#x3001; Prototype&#x6A21;&#x5F0F;&#x7684;&#x9A8C;&#x8BC1;&#x65B9;&#x6CD5;">&#x516D;&#x3001; Prototype&#x6A21;&#x5F0F;&#x7684;&#x9A8C;&#x8BC1;&#x65B9;&#x6CD5; <a href="#t6&#x516D;&#x3001; Prototype&#x6A21;&#x5F0F;&#x7684;&#x9A8C;&#x8BC1;&#x65B9;&#x6CD5;"> # </a></h4>
+<p>&#x4E3A;&#x4E86;&#x914D;&#x5408;prototype&#x5C5E;&#x6027;&#xFF0C;Javascript&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x8F85;&#x52A9;&#x65B9;&#x6CD5;&#xFF0C;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#xFF0C;</p>
+<ul>
+<li><p>6.1 isPrototypeOf()
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x67D0;&#x4E2A;proptotype&#x5BF9;&#x8C61;&#x548C;&#x67D0;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;alert(Cat.prototype.isPrototypeOf(cat1)); //true
+&#x3000;&#x3000;alert(Cat.prototype.isPrototypeOf(cat2)); //true
+</code></pre></li>
+<li><p>6.2 hasOwnProperty()
+&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x90FD;&#x6709;&#x4E00;&#x4E2A;hasOwnProperty()&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x5224;&#x65AD;&#x67D0;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x5230;&#x5E95;&#x662F;&#x672C;&#x5730;&#x5C5E;&#x6027;&#xFF0C;&#x8FD8;&#x662F;&#x7EE7;&#x627F;&#x81EA;prototype&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;alert(cat1.hasOwnProperty(&quot;name&quot;)); // true
+&#x3000;&#x3000;alert(cat1.hasOwnProperty(&quot;type&quot;)); // false
+</code></pre></li>
+<li><p>6.3 in&#x8FD0;&#x7B97;&#x7B26;</p>
+</li>
+</ul>
+<blockquote>
+<p>in&#x8FD0;&#x7B97;&#x7B26;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x67D0;&#x4E2A;&#x5B9E;&#x4F8B;&#x662F;&#x5426;&#x542B;&#x6709;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x4E0D;&#x662F;&#x672C;&#x5730;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;alert(&quot;name&quot; in cat1); // true
+&#x3000;&#x3000;alert(&quot;type&quot; in cat1); // true
+</code></pre><p>in&#x8FD0;&#x7B97;&#x7B26;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x904D;&#x5386;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x3002;</p>
+<pre><code>&#x3000;&#x3000;for(var prop in cat1) { alert(&quot;cat1[&quot;+prop+&quot;]=&quot;+cat1[prop]); }
+</code></pre></blockquote>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
